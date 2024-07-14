@@ -61,7 +61,7 @@ const [error, setError] = useState<any>(null);
       formData.append('file', event.target.elements.file.files[ 0 ]);
       
 
-      const response = await axios.post('http://127.0.0.1:5000/predict', formData);
+      const response = await axios.post('https://sea-turtle-app-vktl8.ondigitalocean.app/predict', formData);
       console.log(response.data);
 
       
