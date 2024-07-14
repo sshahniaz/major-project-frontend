@@ -1,0 +1,736 @@
+{
+    "top10ProductTypesSales": [
+        {
+            "productType": "Seafood",
+            "sales": 2364.52212
+        },
+        {
+            "productType": "Starchy Foods",
+            "sales": 2241.8166379562044
+        },
+        {
+            "productType": "Snack Foods",
+            "sales": 2162.7662610287707
+        },
+        {
+            "productType": "Household",
+            "sales": 2154.2244342857143
+        },
+        {
+            "productType": "Fruits and Vegetables",
+            "sales": 2147.427314334764
+        },
+        {
+            "productType": "Canned",
+            "sales": 2137.1292979133227
+        },
+        {
+            "productType": "Breads",
+            "sales": 2083.440146058091
+        },
+        {
+            "productType": "Meat",
+            "sales": 2062.6712460784315
+        },
+        {
+            "productType": "Dairy",
+            "sales": 2050.919361180124
+        },
+        {
+            "productType": "Hard Drinks",
+            "sales": 2049.5004660194177
+        }
+    ],
+    "locationType": [
+        {
+            "type": "Tier 1",
+            "averageTierSales": 1865.21853309921,
+            "OutletType": [
+                {
+                    "type": "Grocery Store",
+                    "averageTypeSales": 338.2844899328859,
+                    "OutletSize": [
+                        {
+                            "size": "Small",
+                            "averageSalesforSize": 338.2844899328859,
+                            "productTypes": [
+                                {
+                                    "name": "Baking Goods",
+                                    "averageSales": 325.38597142857145
+                                },
+                                {
+                                    "name": "Breads",
+                                    "averageSales": 285.34285714285716
+                                },
+                                {
+                                    "name": "Breakfast",
+                                    "averageSales": 376.8428
+                                },
+                                {
+                                    "name": "Canned",
+                                    "averageSales": 419.64125625
+                                },
+                                {
+                                    "name": "Dairy",
+                                    "averageSales": 325.8360243902439
+                                },
+                                {
+                                    "name": "Frozen Foods",
+                                    "averageSales": 310.6034418604651
+                                },
+                                {
+                                    "name": "Fruits and Vegetables",
+                                    "averageSales": 324.4477254237288
+                                },
+                                {
+                                    "name": "Hard Drinks",
+                                    "averageSales": 236.83457142857145
+                                },
+                                {
+                                    "name": "Health and Hygiene",
+                                    "averageSales": 354.136724137931
+                                },
+                                {
+                                    "name": "Household",
+                                    "averageSales": 335.53425217391305
+                                },
+                                {
+                                    "name": "Meat",
+                                    "averageSales": 381.28939285714284
+                                },
+                                {
+                                    "name": "Others",
+                                    "averageSales": 277.37228
+                                },
+                                {
+                                    "name": "Seafood",
+                                    "averageSales": 253.83625
+                                },
+                                {
+                                    "name": "Snack Foods",
+                                    "averageSales": 362.7643516129032
+                                },
+                                {
+                                    "name": "Soft Drinks",
+                                    "averageSales": 328.05781818181816
+                                },
+                                {
+                                    "name": "Starchy Foods",
+                                    "averageSales": 327.5736
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Supermarket Type1",
+                    "averageTypeSales": 2237.9872481703987,
+                    "OutletSize": [
+                        {
+                            "size": "Medium",
+                            "averageSalesforSize": 2265.2178676889375,
+                            "productTypes": [
+                                {
+                                    "name": "Baking Goods",
+                                    "averageSales": 2110.0513424242426
+                                },
+                                {
+                                    "name": "Breads",
+                                    "averageSales": 2229.93065
+                                },
+                                {
+                                    "name": "Breakfast",
+                                    "averageSales": 1940.30765
+                                },
+                                {
+                                    "name": "Canned",
+                                    "averageSales": 2061.7639791044776
+                                },
+                                {
+                                    "name": "Dairy",
+                                    "averageSales": 2234.2172779220778
+                                },
+                                {
+                                    "name": "Frozen Foods",
+                                    "averageSales": 2221.4965736263734
+                                },
+                                {
+                                    "name": "Fruits and Vegetables",
+                                    "averageSales": 2361.3184470588235
+                                },
+                                {
+                                    "name": "Hard Drinks",
+                                    "averageSales": 2097.5807066666666
+                                },
+                                {
+                                    "name": "Health and Hygiene",
+                                    "averageSales": 2081.4996784313726
+                                },
+                                {
+                                    "name": "Household",
+                                    "averageSales": 2546.0336739130435
+                                },
+                                {
+                                    "name": "Meat",
+                                    "averageSales": 2148.2181739130438
+                                },
+                                {
+                                    "name": "Others",
+                                    "averageSales": 2810.1459764705883
+                                },
+                                {
+                                    "name": "Seafood",
+                                    "averageSales": 1689.6101714285712
+                                },
+                                {
+                                    "name": "Snack Foods",
+                                    "averageSales": 2430.845591176471
+                                },
+                                {
+                                    "name": "Soft Drinks",
+                                    "averageSales": 1914.9618545454543
+                                },
+                                {
+                                    "name": "Starchy Foods",
+                                    "averageSales": 2471.7629176470587
+                                }
+                            ]
+                        },
+                        {
+                            "size": "Small",
+                            "averageSalesforSize": 2210.904943572985,
+                            "productTypes": [
+                                {
+                                    "name": "Baking Goods",
+                                    "averageSales": 2281.2673342105263
+                                },
+                                {
+                                    "name": "Breads",
+                                    "averageSales": 2605.887936
+                                },
+                                {
+                                    "name": "Breakfast",
+                                    "averageSales": 1659.9725599999997
+                                },
+                                {
+                                    "name": "Canned",
+                                    "averageSales": 2205.4190782608694
+                                },
+                                {
+                                    "name": "Dairy",
+                                    "averageSales": 2172.1076493506494
+                                },
+                                {
+                                    "name": "Frozen Foods",
+                                    "averageSales": 2208.8195009345795
+                                },
+                                {
+                                    "name": "Fruits and Vegetables",
+                                    "averageSales": 2418.6611714285714
+                                },
+                                {
+                                    "name": "Hard Drinks",
+                                    "averageSales": 2016.1825684210528
+                                },
+                                {
+                                    "name": "Health and Hygiene",
+                                    "averageSales": 2032.260283018868
+                                },
+                                {
+                                    "name": "Household",
+                                    "averageSales": 2131.264584466019
+                                },
+                                {
+                                    "name": "Meat",
+                                    "averageSales": 2160.7328454545454
+                                },
+                                {
+                                    "name": "Others",
+                                    "averageSales": 1888.2088
+                                },
+                                {
+                                    "name": "Seafood",
+                                    "averageSales": 3962.1758
+                                },
+                                {
+                                    "name": "Snack Foods",
+                                    "averageSales": 2290.113421666667
+                                },
+                                {
+                                    "name": "Soft Drinks",
+                                    "averageSales": 1793.0132708333333
+                                },
+                                {
+                                    "name": "Starchy Foods",
+                                    "averageSales": 2223.3439857142857
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Tier 2",
+            "averageTierSales": 2220.9501017968464,
+            "OutletType": [
+                {
+                    "type": "Supermarket Type1",
+                    "averageTypeSales": 2220.9501017968464,
+                    "OutletSize": [
+                        {
+                            "size": "Medium",
+                            "averageSalesforSize": 2168.8025276923076,
+                            "productTypes": [
+                                {
+                                    "name": "Baking Goods",
+                                    "averageSales": 2020.414958865248
+                                },
+                                {
+                                    "name": "Breads",
+                                    "averageSales": 1992.7394
+                                },
+                                {
+                                    "name": "Breakfast",
+                                    "averageSales": 2101.779281818182
+                                },
+                                {
+                                    "name": "Canned",
+                                    "averageSales": 2414.884732394366
+                                },
+                                {
+                                    "name": "Dairy",
+                                    "averageSales": 2180.446753623188
+                                },
+                                {
+                                    "name": "Frozen Foods",
+                                    "averageSales": 2080.507936263736
+                                },
+                                {
+                                    "name": "Fruits and Vegetables",
+                                    "averageSales": 2228.399437547893
+                                },
+                                {
+                                    "name": "Hard Drinks",
+                                    "averageSales": 2135.1526612244897
+                                },
+                                {
+                                    "name": "Health and Hygiene",
+                                    "averageSales": 1977.1964137931036
+                                },
+                                {
+                                    "name": "Household",
+                                    "averageSales": 2246.55484375
+                                },
+                                {
+                                    "name": "Meat",
+                                    "averageSales": 2175.964312195122
+                                },
+                                {
+                                    "name": "Others",
+                                    "averageSales": 2154.2698777777778
+                                },
+                                {
+                                    "name": "Seafood",
+                                    "averageSales": 2568.608842857143
+                                },
+                                {
+                                    "name": "Snack Foods",
+                                    "averageSales": 2176.450591372549
+                                },
+                                {
+                                    "name": "Soft Drinks",
+                                    "averageSales": 2058.0465470588238
+                                },
+                                {
+                                    "name": "Starchy Foods",
+                                    "averageSales": 2418.831817647059
+                                }
+                            ]
+                        },
+                        {
+                            "size": "Small",
+                            "averageSalesforSize": 2325.5902174200664,
+                            "productTypes": [
+                                {
+                                    "name": "Baking Goods",
+                                    "averageSales": 1757.3534923076922
+                                },
+                                {
+                                    "name": "Breads",
+                                    "averageSales": 2483.7669
+                                },
+                                {
+                                    "name": "Breakfast",
+                                    "averageSales": 2748.052511111111
+                                },
+                                {
+                                    "name": "Canned",
+                                    "averageSales": 2473.9779544303797
+                                },
+                                {
+                                    "name": "Dairy",
+                                    "averageSales": 2327.934919402985
+                                },
+                                {
+                                    "name": "Frozen Foods",
+                                    "averageSales": 2266.1637054945054
+                                },
+                                {
+                                    "name": "Fruits and Vegetables",
+                                    "averageSales": 2258.1293936507936
+                                },
+                                {
+                                    "name": "Hard Drinks",
+                                    "averageSales": 2270.075363636364
+                                },
+                                {
+                                    "name": "Health and Hygiene",
+                                    "averageSales": 2277.674624489796
+                                },
+                                {
+                                    "name": "Household",
+                                    "averageSales": 2600.120394059406
+                                },
+                                {
+                                    "name": "Meat",
+                                    "averageSales": 2492.8790697674417
+                                },
+                                {
+                                    "name": "Others",
+                                    "averageSales": 2377.987925
+                                },
+                                {
+                                    "name": "Seafood",
+                                    "averageSales": 2919.8659
+                                },
+                                {
+                                    "name": "Snack Foods",
+                                    "averageSales": 2408.7518014705884
+                                },
+                                {
+                                    "name": "Soft Drinks",
+                                    "averageSales": 1969.3972352941178
+                                },
+                                {
+                                    "name": "Starchy Foods",
+                                    "averageSales": 2365.837075
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Tier 3",
+            "averageTierSales": 2088.6657174896463,
+            "OutletType": [
+                {
+                    "type": "Grocery Store",
+                    "averageTypeSales": 341.97858964803316,
+                    "OutletSize": [
+                        {
+                            "size": "Medium",
+                            "averageSalesforSize": 341.97858964803316,
+                            "productTypes": [
+                                {
+                                    "name": "Baking Goods",
+                                    "averageSales": 244.02578787878787
+                                },
+                                {
+                                    "name": "Breads",
+                                    "averageSales": 476.3799
+                                },
+                                {
+                                    "name": "Breakfast",
+                                    "averageSales": 505.17575
+                                },
+                                {
+                                    "name": "Canned",
+                                    "averageSales": 261.41527333333335
+                                },
+                                {
+                                    "name": "Dairy",
+                                    "averageSales": 355.2393421052631
+                                },
+                                {
+                                    "name": "Frozen Foods",
+                                    "averageSales": 324.66957872340424
+                                },
+                                {
+                                    "name": "Fruits and Vegetables",
+                                    "averageSales": 305.84069552238805
+                                },
+                                {
+                                    "name": "Hard Drinks",
+                                    "averageSales": 265.7493142857143
+                                },
+                                {
+                                    "name": "Health and Hygiene",
+                                    "averageSales": 386.0227696969697
+                                },
+                                {
+                                    "name": "Household",
+                                    "averageSales": 372.4596166666667
+                                },
+                                {
+                                    "name": "Meat",
+                                    "averageSales": 419.0674064516129
+                                },
+                                {
+                                    "name": "Others",
+                                    "averageSales": 349.10113333333334
+                                },
+                                {
+                                    "name": "Seafood",
+                                    "averageSales": 258.5523333333333
+                                },
+                                {
+                                    "name": "Snack Foods",
+                                    "averageSales": 365.773875
+                                },
+                                {
+                                    "name": "Soft Drinks",
+                                    "averageSales": 337.96008
+                                },
+                                {
+                                    "name": "Starchy Foods",
+                                    "averageSales": 158.59355999999997
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Supermarket Type1",
+                    "averageTypeSales": 2207.7949829508198,
+                    "OutletSize": [
+                        {
+                            "size": "High",
+                            "averageSalesforSize": 2207.7949829508198,
+                            "productTypes": [
+                                {
+                                    "name": "Baking Goods",
+                                    "averageSales": 1922.5772084507043
+                                },
+                                {
+                                    "name": "Breads",
+                                    "averageSales": 2080.731528
+                                },
+                                {
+                                    "name": "Breakfast",
+                                    "averageSales": 2104.2865076923076
+                                },
+                                {
+                                    "name": "Canned",
+                                    "averageSales": 2069.9299269841267
+                                },
+                                {
+                                    "name": "Dairy",
+                                    "averageSales": 2301.585241025641
+                                },
+                                {
+                                    "name": "Frozen Foods",
+                                    "averageSales": 2214.096189130435
+                                },
+                                {
+                                    "name": "Fruits and Vegetables",
+                                    "averageSales": 2266.5134652173915
+                                },
+                                {
+                                    "name": "Hard Drinks",
+                                    "averageSales": 2114.520272727273
+                                },
+                                {
+                                    "name": "Health and Hygiene",
+                                    "averageSales": 1953.0424393442622
+                                },
+                                {
+                                    "name": "Household",
+                                    "averageSales": 2324.6967326732674
+                                },
+                                {
+                                    "name": "Meat",
+                                    "averageSales": 2321.953141463415
+                                },
+                                {
+                                    "name": "Others",
+                                    "averageSales": 2202.383175
+                                },
+                                {
+                                    "name": "Seafood",
+                                    "averageSales": 1629.34576
+                                },
+                                {
+                                    "name": "Snack Foods",
+                                    "averageSales": 2350.213968852459
+                                },
+                                {
+                                    "name": "Soft Drinks",
+                                    "averageSales": 2257.0203875
+                                },
+                                {
+                                    "name": "Starchy Foods",
+                                    "averageSales": 2302.791947368421
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Supermarket Type2",
+                    "averageTypeSales": 1951.7814705114256,
+                    "OutletSize": [
+                        {
+                            "size": "Medium",
+                            "averageSalesforSize": 1951.7814705114256,
+                            "productTypes": [
+                                {
+                                    "name": "Baking Goods",
+                                    "averageSales": 1780.3687823529413
+                                },
+                                {
+                                    "name": "Breads",
+                                    "averageSales": 2022.4044888888889
+                                },
+                                {
+                                    "name": "Breakfast",
+                                    "averageSales": 1473.1127636363635
+                                },
+                                {
+                                    "name": "Canned",
+                                    "averageSales": 1744.1244236842108
+                                },
+                                {
+                                    "name": "Dairy",
+                                    "averageSales": 2025.7704777777778
+                                },
+                                {
+                                    "name": "Frozen Foods",
+                                    "averageSales": 1995.6414195652176
+                                },
+                                {
+                                    "name": "Fruits and Vegetables",
+                                    "averageSales": 1918.954847761194
+                                },
+                                {
+                                    "name": "Hard Drinks",
+                                    "averageSales": 2247.528954545455
+                                },
+                                {
+                                    "name": "Health and Hygiene",
+                                    "averageSales": 1876.6491344827587
+                                },
+                                {
+                                    "name": "Household",
+                                    "averageSales": 2019.4422297872338
+                                },
+                                {
+                                    "name": "Meat",
+                                    "averageSales": 1848.0489545454545
+                                },
+                                {
+                                    "name": "Others",
+                                    "averageSales": 1853.62049
+                                },
+                                {
+                                    "name": "Seafood",
+                                    "averageSales": 3166.6399142857144
+                                },
+                                {
+                                    "name": "Snack Foods",
+                                    "averageSales": 2079.288317557252
+                                },
+                                {
+                                    "name": "Soft Drinks",
+                                    "averageSales": 1923.8146260869567
+                                },
+                                {
+                                    "name": "Starchy Foods",
+                                    "averageSales": 1947.699988235294
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Supermarket Type3",
+                    "averageTypeSales": 3135.433634549878,
+                    "OutletSize": [
+                        {
+                            "size": "Medium",
+                            "averageSalesforSize": 3135.433634549878,
+                            "productTypes": [
+                                {
+                                    "name": "Baking Goods",
+                                    "averageSales": 3004.079356923077
+                                },
+                                {
+                                    "name": "Breads",
+                                    "averageSales": 3144.6447357142856
+                                },
+                                {
+                                    "name": "Breakfast",
+                                    "averageSales": 2857.898942857143
+                                },
+                                {
+                                    "name": "Canned",
+                                    "averageSales": 3362.02368
+                                },
+                                {
+                                    "name": "Dairy",
+                                    "averageSales": 3078.4689714285714
+                                },
+                                {
+                                    "name": "Frozen Foods",
+                                    "averageSales": 3051.0158582278477
+                                },
+                                {
+                                    "name": "Fruits and Vegetables",
+                                    "averageSales": 3391.2974389830506
+                                },
+                                {
+                                    "name": "Hard Drinks",
+                                    "averageSales": 3097.8405809523806
+                                },
+                                {
+                                    "name": "Health and Hygiene",
+                                    "averageSales": 2935.919077777778
+                                },
+                                {
+                                    "name": "Household",
+                                    "averageSales": 3195.770323255814
+                                },
+                                {
+                                    "name": "Meat",
+                                    "averageSales": 3303.5773102040816
+                                },
+                                {
+                                    "name": "Others",
+                                    "averageSales": 2700.9286666666667
+                                },
+                                {
+                                    "name": "Seafood",
+                                    "averageSales": 2687.073685714286
+                                },
+                                {
+                                    "name": "Snack Foods",
+                                    "averageSales": 3204.0111818181817
+                                },
+                                {
+                                    "name": "Soft Drinks",
+                                    "averageSales": 2546.49721025641
+                                },
+                                {
+                                    "name": "Starchy Foods",
+                                    "averageSales": 2937.3986333333337
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
