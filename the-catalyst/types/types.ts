@@ -1,6 +1,6 @@
 export interface ProductType {
-  productType: string;
-  sales: number;
+  name: string;
+  averageSales: number;
 }
 
 export interface OutletSize {
@@ -12,16 +12,19 @@ export interface OutletSize {
 export interface OutletType {
   type: string;
   averageTypeSales: number;
-  outletSizes: OutletSize[]; // Renamed for clarity
+  OutletSize: OutletSize[];
 }
 
 export interface LocationType {
   type: string;
   averageTierSales: number;
-  outletTypes: OutletType[]; // Renamed for clarity
+  OutletType: OutletType[];
 }
 
 export interface SalesData {
+  top10ProductTypesSales: {
+    productType: string;
+    sales: number;
+  }[];
   locationType: LocationType[];
-  top10ProductTypesSales: ProductType[];
 }

@@ -62,8 +62,11 @@ const Prediciton = () => {
       }
 
     }
+
     fetchBaselineData();
   }, []);
+  
+  // console.log(baselineData?.locationType.map((locationType) => locationType.OutletType.map((outletType) => outletType.OutletSize.map((outletSize) => outletSize.productTypes.map((productType) => productType.name)))));
   
 
   const handleSubmit = async (event: any) => {
@@ -101,45 +104,42 @@ const Prediciton = () => {
   }
 
   // Generate chart data for a specific feature or group
-  const generateChartData = (data: LocationType[] | ProductType[] | OutletType[] | OutletSize[], label: string) => {
-    if (!data) return { labels: [], datasets: [] };
-  
-    const chartData: ChartData = { labels: [], datasets: [] };
+ const generateChartData = (data: LocationType[] | ProductType[] | OutletType[], label: string): ChartData => {
+  if (!data) return { labels: [], datasets: [] };
 
-    console.log(data);
-    chartData.labels = data.map((item) => {
-      if ('productType' in item) {
-        return item.productType;
-      } else if ('type' in item) {
-        return item.type;
-      } else if ('size' in item) {
-        return item.size;
+  const chartData: ChartData = { labels: [], datasets: [] };
+
+  chartData.labels = data.map((item) => {
+    // Type Guard to ensure the item has the right property
+    if ('productType' in item) {
+      return (item as ProductType).name;
+    } else if ('type' in item) {
+      return (item as LocationType | OutletType).type; // Can be either locationType or outletType
+    } else {
+      throw new Error('Unexpected data format'); // Throw error for unsupported data type
+    }
+  });
+
+  chartData.datasets.push({
+    label,
+    data: data.map((item) => {
+      // Similar type guard approach for sales data
+      if ('sales' in item) {
+        return (item as { sales: number }).sales;
+      } else if ('averageTierSales' in item) {
+        return (item as LocationType).averageTierSales;
+      } else if ('averageTypeSales' in item) {
+        return (item as OutletType).averageTypeSales;
       } else {
-        return '';
+        return 0; // Default value for missing sales data
       }
-    });
-  
-    chartData.datasets.push({
-      label,
-      data: data.map((item) => {
-        if (('sales') in item) {
-          return item.sales;
-        } else if ('averageTierSales' in item) {
-          return item.averageTierSales;
-        } else if ('averageTypeSales' in item) {
-          return item.averageTypeSales;
-        } else if ('averageSalesforSize' in item) {
-          return item.averageSalesforSize;
-        } else {
-          return 0;
-        }
-      }),
-      backgroundColor: `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.2)`,
-      borderColor: `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 1)`,
-    });
-  
-    return chartData;
-  };
+    }),
+    backgroundColor: `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.2)`,
+    borderColor: `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 1)`,
+  });
+
+  return chartData;
+};
 
 
 
@@ -168,25 +168,35 @@ const Prediciton = () => {
           </div> */}
 
           {/* Location Types Chart */}
-          {/* <div className="chart-wrapper">
+          <div className="chart-wrapper">
             <h3>Location Types</h3>
             <Line data={generateChartData(baselineData?.locationType || [], 'Location Tier Average Sales')} options={{}} />
-          </div> */}
+          </div>
 
-          {/* Per Tier Charts */}
-          {baselineData?.locationType?.map((locationType) => (
-            <div className="chart-wrapper" key={locationType.type}>
-              <h3>{locationType.type} - Products vs. Outlet Size</h3>
-              {locationType.outletTypes?.map((outletType) => ( 
+            {/* Per Tier Charts */}
+            <div>
+              {/* {baselineData?.locationType?.map((locationType) => (
+            <div className="charts-container" key={locationType.type}>
+                  <h3>{locationType.type} - Products vs. Outlet Size</h3> */}
+                  
+
+              {/* {locationType.outletTypes?.map((outletType) => ( 
                 
                 outletType.outletSizes.map((outletSize) => (
-                  <div key={outletSize.size}>
+                  <div className='chart-wrapper' key={outletSize.size}>
                     <h4>{ `${outletType.type} - ${outletSize.size}`}</h4>
                     <Line data={generateChartData(outletSize.productTypes, `${locationType.type} Sales`)} options={{}} />
                   </div>
-                ))))}
-            </div>
-          ))}
+                ))))} */}
+                  
+            {/* </div>
+          ))} */}
+              
+      
+
+
+          </div>
+          
         </div>
       ) : null}
     </div>
