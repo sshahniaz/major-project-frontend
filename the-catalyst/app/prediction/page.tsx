@@ -180,17 +180,17 @@ const Prediciton = () => {
           </div>
 
             {/* Per Tier Charts */}
-            <div className='product-store-sales-wrapper'>
+            <div className='product-store-sales-wrapper flex flex-row space-x-4'>
 
               {baselineData?.locationType?.map((locationType) => (
-            <div className="charts-container" key={locationType.type}>
+            <div className="charts-container w-full" key={locationType.type}>
                   <h3>{locationType.type} - Products in Outlet Size</h3>
                   
 
               {locationType.OutletType?.map((outletType) => ( 
                 
                 outletType.OutletSize.map((outletSize) => (
-                  <div className='chart-wrapper' key={outletSize.size}>
+                  <div className='chart-wrapper ' key={outletSize.size}>
                     <h4>{ `${outletType.type} - ${outletSize.size}`}</h4>
                    
                     <Bar data={generateChartData(outletSize.productTypes, `${locationType.type} Sales`)} options={{}} />
