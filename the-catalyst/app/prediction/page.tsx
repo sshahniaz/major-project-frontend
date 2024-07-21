@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, PointElement, LineElement, Legend, Title } from 'chart.js';
-import { ProductType, OutletSize, OutletType, LocationType, SalesData } from '@/types/types';// Assuming 'types' folder for interfaces
-import { Line } from 'react-chartjs-2';
+import { ProductType, OutletSize, OutletType, LocationType, SalesData, Top10ProductTypesSalesInterface } from '@/types/types';// Assuming 'types' folder for interfaces
+import { Line, Bar } from 'react-chartjs-2';
 
 ChartJS.register(
   BarElement,
@@ -104,7 +104,7 @@ const Prediciton = () => {
   }
 
   // Generate chart data for a specific feature or group
- const generateChartData = (data: LocationType[] | ProductType[] | OutletType[], label: string): ChartData => {
+ const generateChartData = (data: LocationType[] | ProductType[] | OutletType[] | Top10ProductTypesSalesInterface[], label: string): ChartData => {
   if (!data) return { labels: [], datasets: [] };
 
   const chartData: ChartData = { labels: [], datasets: [] };
@@ -112,11 +112,15 @@ const Prediciton = () => {
   chartData.labels = data.map((item) => {
     // Type Guard to ensure the item has the right property
     if ('productType' in item) {
+      // check if item is of type Top10ProductTypesSalesInterface 
+      return (item as Top10ProductTypesSalesInterface).productType;
+      
+    } else if ('productType' in item) {
       return (item as ProductType).name;
     } else if ('type' in item) {
       return (item as LocationType | OutletType).type; // Can be either locationType or outletType
     } else {
-      throw new Error('Unexpected data format'); // Throw error for unsupported data type
+      return item.name; // Throw error for unsupported data type
     }
   });
 
@@ -130,12 +134,14 @@ const Prediciton = () => {
         return (item as LocationType).averageTierSales;
       } else if ('averageTypeSales' in item) {
         return (item as OutletType).averageTypeSales;
+      } else if ('averageSales' in item) {
+        return (item as ProductType).averageSales;
       } else {
         return 0; // Default value for missing sales data
       }
     }),
-    backgroundColor: `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.2)`,
-    borderColor: `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 1)`,
+    backgroundColor: `#F1F1F1`,
+    borderColor: `rgba(0, 0, 0, 0.2)`,
   });
 
   return chartData;
@@ -162,39 +168,41 @@ const Prediciton = () => {
         {formData?.predictedResult || (baselineData) ? (
         <div className="charts-container">
           {/* Top 10 Products Chart */}
-          {/* <div className="chart-wrapper">
+          <div className="chart-wrapper">
             <h3>Top 10 Products</h3>
-            <Line data={generateChartData(baselineData?.top10ProductTypesSales || [], 'Top 10 Sales')} options={{}} />
-          </div> */}
+            <Bar data={generateChartData(baselineData?.top10ProductTypesSales || [], 'Top 10 Sales')} options={{}} />
+          </div>
 
           {/* Location Types Chart */}
           <div className="chart-wrapper">
             <h3>Location Types</h3>
-            <Line data={generateChartData(baselineData?.locationType || [], 'Location Tier Average Sales')} options={{}} />
+            <Bar data={generateChartData(baselineData?.locationType || [], 'Location Tier Average Sales')} options={{}} />
           </div>
 
             {/* Per Tier Charts */}
-            <div>
-              {/* {baselineData?.locationType?.map((locationType) => (
+            <div className='product-store-sales-wrapper'>
+
+              {baselineData?.locationType?.map((locationType) => (
             <div className="charts-container" key={locationType.type}>
-                  <h3>{locationType.type} - Products vs. Outlet Size</h3> */}
+                  <h3>{locationType.type} - Products in Outlet Size</h3>
                   
 
-              {/* {locationType.outletTypes?.map((outletType) => ( 
+              {locationType.OutletType?.map((outletType) => ( 
                 
-                outletType.outletSizes.map((outletSize) => (
+                outletType.OutletSize.map((outletSize) => (
                   <div className='chart-wrapper' key={outletSize.size}>
                     <h4>{ `${outletType.type} - ${outletSize.size}`}</h4>
-                    <Line data={generateChartData(outletSize.productTypes, `${locationType.type} Sales`)} options={{}} />
+                   
+                    <Bar data={generateChartData(outletSize.productTypes, `${locationType.type} Sales`)} options={{}} />
+                    
                   </div>
-                ))))} */}
-                  
-            {/* </div>
-          ))} */}
+                ))
               
-      
-
-
+              ))}
+                  
+            </div>
+          ))}
+              
           </div>
           
         </div>

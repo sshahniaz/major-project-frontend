@@ -21,10 +21,12 @@ export interface LocationType {
   OutletType: OutletType[];
 }
 
+export interface Top10ProductTypesSalesInterface {
+  productType: string;
+  sales: number;
+}
+
 export interface SalesData {
-  top10ProductTypesSales: {
-    productType: string;
-    sales: number;
-  }[];
+  top10ProductTypesSales: Top10ProductTypesSalesInterface[];
   locationType: LocationType[];
 }
