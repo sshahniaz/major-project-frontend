@@ -13,6 +13,10 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      textColor: {
+        'axis-label-light': 'text-gray-700 dark:text-gray-200', // Light theme color
+        'axis-label-dark': 'text-gray-200 dark:text-gray-700', // Dark theme color
+      },
     },
   },
   plugins: [],

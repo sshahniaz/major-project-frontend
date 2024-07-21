@@ -5,16 +5,18 @@
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-end-rgb: 246, 248, 252;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 20, 20, 40;
+    --background-end-rgb: 20, 27, 45;
   }
 }
+
+
 
 body {
   color: rgb(var(--foreground-rgb));
@@ -24,6 +26,18 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.chartjs-chart .chartjs-legend .chartjs-legend-item span.chartjs-legend-text {
+  color: rgb(255, 255, 255); /* Default color for all labels */
+}
+
+input[type="file"]{
+  /* appearance: none; */
+  /* border: 1px rgb(209 213 219);
+  border-radius: 0.375rem;
+
+  width: 100%; */
 }
 
 @layer utilities {
