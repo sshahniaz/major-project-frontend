@@ -202,7 +202,7 @@ const Prediciton = () => {
       chartData.datasets.push({
         label: 'Predicted',
         data: extractData(predictedData),
-        backgroundColor: `#6f32ff`,
+        backgroundColor: `#F65164`,
         borderColor: `rgb(255, 255, 255)`,
      
       });
@@ -237,7 +237,7 @@ const Prediciton = () => {
                 type="file"
                 name="file"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border borer-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 mt-3 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
             <button
@@ -259,14 +259,14 @@ const Prediciton = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-white shadow-sm rounded-lg overflow-hidden dark:bg-gray-800">  {/* Top 10 Products Chart card */}
                 <div className="px-4 py-5 sm:p-6">
-                   <h3 className='"text-gray-700 dark:text-gray-200 text-lg'>Top 10 Products (Average Sales)</h3>
+                   <h3 className='"text-gray-700 dark:text-gray-200 text-xl md:text-2xl font-semibold'>Top 10 Products (Average Sales)</h3>
                    <Bar data={generateChartData(baselineData?.top10ProductTypesSales || [], predictedResult?.top10ProductTypesSales || [], 'Top 10 Sales')} options={chartOptions} />
                 </div>
               </div>
 
               <div className="bg-white shadow-sm rounded-lg overflow-hidden dark:bg-gray-800">  {/* Location Types Chart card */}
                 <div className="px-4 py-5 sm:p-6">
-                  <h3 className='"text-gray-700 dark:text-gray-200 text-lg'>Location Types (Average Sales)</h3>
+                  <h3 className='"text-gray-700 dark:text-gray-200 text-xl md:text-2xl font-semibold'>Location Types (Average Sales)</h3>
                   <Bar data={generateChartData(baselineData?.locationType || [], predictedResult?.top10ProductTypesSales || [], 'Location Tier Average Sales')} options={chartOptions} />
                </div>
               </div>
@@ -274,23 +274,30 @@ const Prediciton = () => {
               
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">  {/* Per Tier Charts */}
-                {baselineData?.locationType.map((locationType) => (
-                  <div className="bg-white shadow-sm rounded-lg overflow-hidden dark:bg-gray-800" key={locationType.type}>
-                    <div className="px-4 py-5 sm:p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 max-w-8xl">  {/* Per Tier Charts */}
+              {baselineData?.locationType.map((locationType, index) => (
+                  
+                
+                  <div className={`bg-white shadow-sm rounded-lg overflow-hidden dark:bg-gray-800 ${
+         index === baselineData?.locationType.length - 1 && 'md:col-span-2' // Apply col-span-2 every other element (odd index) on medium screens and larger
+      }`} key={locationType.type}>
+                    <div className="px-4 py-8 sm:p-6">
 
-                       <h3 className="text-gray-700 dark:text-gray-200 text-lg">{locationType.type} - Average Sales of Products Each Outlet by Location</h3>  {/* Text color based on dark mode */}
+                       <h3 className="text-gray-700 dark:text-gray-200 text-xl md:text-2xl  font-semibold ">{locationType.type} - Average Sales of Products Each Outlet by Location</h3>  {/* Text color based on dark mode */}
                        {locationType.OutletType?.map((outletType) => (
-                         <div className="mt-4" key={outletType.type}>
+                         <div className="mt-8" key={outletType.type}>
                            {outletType.OutletSize?.map((outletSize) => (
-                             <>
                              
-                               <h4 className="text-gray-700 dark:text-gray-200 text-lg" key={outletSize.size}>{`${outletType.type} - ${outletSize.size}`}</h4>  
+                             
+                               <div className='flex flex-col mt-8' key={outletSize.size}>
+                               <h4 className="text-gray-700 dark:text-gray-200 text-lg font-medium" key={outletSize.size}>{`${outletType.type} - ${outletSize.size}`}</h4>  
+                                 
                                <Bar data={generateChartData(outletSize.productTypes,
                       predictedResult?.locationType?.find((location) => location.type === locationType.type)?.OutletType?.find((outlet) => outlet.type === outletType.type)?.OutletSize?.find((size) => size.size === outletSize.size)?.productTypes || []
                       , `${locationType.type} Sales`)} options={chartOptions} />
+                               </div>
                     
-                             </>
+                           
                              
                            ))}
                           </div> 
