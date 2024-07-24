@@ -168,25 +168,6 @@ const Prediciton = () => {
         }
       });
     }
-      // chartData.datasets.push({
-      //   label,
-      //   data: data.map((item) => {
-      //     // Similar type guard approach for sales data
-      //     if ('sales' in item) {
-      //       return (item as { sales: number }).sales;
-      //     } else if ('averageTierSales' in item) {
-      //       return (item as LocationType).averageTierSales;
-      //     } else if ('averageTypeSales' in item) {
-      //       return (item as OutletType).averageTypeSales;
-      //     } else if ('averageSales' in item) {
-      //       return (item as ProductType).averageSales;
-      //     } else {
-      //       return 0; // Default value for missing sales data
-      //     }
-      //   }),
-      //   backgroundColor: `#F1F1F1`,
-      //   borderColor: `rgba(0, 0, 0, 0.2)`,
-      // });
 
     if (baselineData) {
       chartData.datasets.push({
@@ -231,13 +212,15 @@ const Prediciton = () => {
             <div className="flex flex-wrap -mb-3">
               <label htmlFor="file" className="text-lg font-medium text-gray-800 dark:text-white mb-1 w-full sm:w-1/2">
                 Upload File
-              </label>
+                  </label>
+                  {/* File input */}
+                 { /* Use "file:" prefix for styling the file inputs as does not work by default */}
               <input
                 id="file"
                 type="file"
                 name="file"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 mt-3 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="block rounded-none relative w-full file:px-3 file:py-2 mt-3 file:border-0 file:rounded-md focus:file:outline-none focus:file:ring-indigo-500 focus:file:border-indigo-500 sm:text-sm file:text-sm file:font-semibold file:text-gray-200 file:bg-indigo-500 hover:file:bg-indigo-700"
               />
             </div>
             <button
