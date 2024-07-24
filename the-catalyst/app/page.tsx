@@ -40,7 +40,7 @@ export default function Home() {
               <div className="bg-white shadow-sm rounded-lg overflow-hidden dark:bg-gray-800"> 
                 <div className="px-4 py-5 sm:p-6">
                   <h3 className='text-gray-700 dark:text-gray-200 text-xl md:text-2xl font-semibold'>Get Predicting!</h3>
-                  <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl mt-5">Please use the data provided below &#10098;Note: Please do not change the filenames&#10099;</p>
+                  <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl mt-5">Please use the data provided below for testing. When on the prediction page please upload the file you have downloaded to see results. &#10098;Note: Please do not change the filenames&#10099;</p>
             <ul className="list-disc ml-8 mt-5 mb-5 flex flex-col gap-5">
               {/* Download links */}
               <li className="text-gray-700 dark:text-gray-200 text-md md:text-md">
