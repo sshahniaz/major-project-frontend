@@ -4,12 +4,12 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-around p-24">
 
-      <div className="flex flex-row items-center">
+      <div className="flex flex-col gap-y-2 items-center md:flex-row md:gap-y-0">
 
-      <h1 className="text-6xl font-bold text-center">
+        <h1 className="text-6xl font-bold text-center">
         Welcome to 
-      </h1>
-      <Image
+        </h1>
+        <Image
         src="/Logocatalyst.svg"
         alt="The Catalyst"
         width={500}
@@ -19,10 +19,10 @@ export default function Home() {
         
       </div>
       
-      <p className="text-gray-700 dark:text-gray-200 text-xl md:text-2xl font-semibold">Unlock the power of data-driven sales forecasting.</p>
+      <p className="text-gray-700 dark:text-gray-200 text-xl md:text-2xl font-semibold mt-5">Unlock the power of data-driven sales forecasting.</p>
 
       
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
               <div className="bg-white shadow-sm rounded-lg overflow-hidden dark:bg-gray-800">  
                 <div className="px-4 py-5 sm:p-6">
             <h3 className='text-gray-700 dark:text-gray-200 text-xl md:text-2xl font-semibold'>Key Features</h3>
