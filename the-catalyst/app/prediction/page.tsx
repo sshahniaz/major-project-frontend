@@ -4,8 +4,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, PointElement, LineElement, Legend, Title } from 'chart.js';
 import { ProductType, OutletSize, OutletType, LocationType, SalesData, Top10ProductTypesSalesInterface } from '@/types/types';// Assuming 'types' folder for interfaces
-import { Line, Bar } from 'react-chartjs-2';
-import { color } from 'chart.js/helpers';
+import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(
   BarElement,
@@ -61,7 +60,7 @@ const Prediciton = () => {
 
   }, []);
   
-  // console.log(baselineData?.locationType.map((locationType) => locationType.OutletType.map((outletType) => outletType.OutletSize.map((outletSize) => outletSize.productTypes.map((productType) => productType.name)))));
+
   
 
   const handleSubmit = async (event: any) => {
@@ -78,7 +77,7 @@ const Prediciton = () => {
       console.log(response.data);
 
       
-      // const fileName = event.target.elements.file.files[ 0 ]?.name ?? '';
+     
       setPredictedResult(response.data);
       
       setFormData(formData); // Update formData with predicted result
@@ -201,13 +200,13 @@ const Prediciton = () => {
   }
 
 
-  // const chartFeatures = ['OutletSize', 'LocationType', 'OutletType']; 
-
   return (
     <div className='flex min-h-screen flex-col justify-center items-center'>
        <div className='w-full max-w-screen-2xl px-4'>
       
+
         <h2 className='text-gray-800 dark:text-white text-6xl pt-8'>Predictions</h2>
+       
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-4">
           <div className="bg-white shadow-sm rounded-lg overflow-hidden dark:bg-gray-800">  {/* Form card with dark mode switch */}
             <div className="px-4 py-5 sm:p-6">
