@@ -101,7 +101,10 @@ const Prediciton = () => {
       y: {
         beginAtZero: true,
         ticks: {
-          color: isDarkMode ?  'white' : 'black',
+          color: isDarkMode ? 'white' : 'black',
+          callback: function(value: any, index: number, values: any) {
+                        return '£ ' + value.toFixed(2);
+                    }
         },
       },
     },
