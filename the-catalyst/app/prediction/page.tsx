@@ -313,7 +313,7 @@ const Prediciton = () => {
             <div className="px-4 py-5 sm:p-6">
               <h3 className="text-gray-800 dark:text-white text-xl md:text-2xl font-semibold">Download Predicted Data</h3>
               <p className="text-gray-800 dark:text-white text-lg md:text-xl mt-5">Download the predicted sales data in CSV format. <br/>
-                It's only available after making a prediction. <br/> And for security reasons we recommend downloading the file immediately after prediction. <br/>
+                It&apos;s only available after making a prediction. <br/> And for security reasons we recommend downloading the file immediately after prediction. <br/>
               </p>
               <button
             onClick={handleDownloadCSV}
