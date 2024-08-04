@@ -115,6 +115,7 @@ const Prediciton = () => {
     setIsLoading(false);
   }
 
+  // handles the chart downloads as a PNG image
  const handleDownloadChart = async () => {
     if (!baselineData) {
       console.error('No chart data available to download.');
