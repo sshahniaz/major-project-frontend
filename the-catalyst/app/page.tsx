@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-around p-24">
+    <div className="flex min-h-screen flex-col items-center justify-around p-24">
 
       <div className="flex flex-col gap-y-2 items-center md:flex-row md:gap-y-0">
 
@@ -64,6 +64,6 @@ export default function Home() {
             </div>
       
 
-    </main>
+    </div>
   );
 }

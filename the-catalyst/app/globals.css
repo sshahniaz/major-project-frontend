@@ -16,17 +16,13 @@
   }
 }
 
-
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+ 
+  @apply bg-bg-custom-l dark:bg-bg-custom-d text-gray-700 dark:text-gray-200 duration-300;
 }
+
+
 
 .chartjs-chart .chartjs-legend .chartjs-legend-item span.chartjs-legend-text {
   color: rgb(255, 255, 255); /* Default color for all labels */

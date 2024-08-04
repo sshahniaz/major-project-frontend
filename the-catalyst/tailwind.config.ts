@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,10 +14,11 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      textColor: {
-        'axis-label-light': 'text-gray-700 dark:text-gray-200', // Light theme color
-        'axis-label-dark': 'text-gray-200 dark:text-gray-700', // Dark theme color
-      },
+      colors: {
+        "bg-custom-d": "#141428",
+        "bg-custom-l": "#dcdcdc",
+      }
+      
     },
   },
   plugins: [],
