@@ -122,7 +122,7 @@ const Prediciton = () => {
       return;
     }
 
-    const chartContainer: any = document.getElementById('chart-container'); // Assuming an element with this ID wraps your chart
+    const chartContainer: any = document.querySelector('chart-container'); // Assuming an element with this ID wraps your chart
 
     if (!chartContainer) {
     console.error('Chart container element not found.');
