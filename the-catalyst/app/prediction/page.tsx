@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, PointElement, LineElement, Legend, Title } from 'chart.js';
 import { ProductType, OutletSize, OutletType, LocationType, SalesData, Top10ProductTypesSalesInterface } from '@/types/types';// Assuming 'types' folder for interfaces
 import { Bar } from 'react-chartjs-2';
+import ChartDownloadBtn from '../components/ChartDownloadBtn';
 ChartJS.register(
   BarElement,
   CategoryScale,
@@ -37,9 +38,9 @@ const Prediciton = () => {
   const [predictedResult, setPredictedResult] = useState<SalesData | null>(null); // Stores predicted result
   const [ isDarkMode, setIsDarkMode ] = useState(false);
   const [ isDownloadEnabled, setIsDownloadEnabled ] = useState(false);
-
-
-
+  const [ isDownloading, setIsDownloading ] = useState(false);
+  const chartContaineRefs = useRef<any>({});
+  // Fetch the baseline data on component mount
   useEffect(() => {
     const fetchBaselineData = async () => {
       try {
@@ -52,7 +53,9 @@ const Prediciton = () => {
 
     }
     fetchBaselineData();
-
+    
+    
+  // Check if the user prefers dark mode for the charts to change the color scheme
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     setIsDarkMode(mediaQuery.matches);
 
@@ -64,8 +67,29 @@ const Prediciton = () => {
   }, []);
   
 
-  
+  //Store all the refs for the charts
+  useEffect(() => {
+    const handleChartContainerDivMount = (chartContaineRef: any, locationType: string, outletType: string, outletSize: string) => {
+      
+      // Check if the chart container ref is available
+      if (chartContaineRefs.current) {
+          console.log(`Div ${locationType}-${outletType}-${outletSize} mounted`);
+         
+        }
+    }
+    // Loop through the chart container refs and call the handleChartContainerDivMount function
+    // This is to ensure that the function is called when the component mounts
 
+    Object.entries(chartContaineRefs.current).forEach(([ key, value ]) => {
+      const [ locationType, outletType, outletSize ] = key.split('-');
+      handleChartContainerDivMount(value, locationType, outletType, outletSize);
+    });
+  }
+  ,[chartContaineRefs.current]);
+    
+
+  
+  //Handles the form submission and makes the prediction
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     setIsLoading(true);
@@ -93,6 +117,7 @@ const Prediciton = () => {
     setIsLoading(false);
   }
 
+  //Handles the download of the CSV file
   const handleDownloadCSV = async () => {
     setIsLoading(true);
     setError(null);
@@ -115,14 +140,17 @@ const Prediciton = () => {
     setIsLoading(false);
   }
 
+  
   // handles the chart downloads as a PNG image
- const handleDownloadChart = async () => {
+ const handleDownloadChart = async (chartClassName: string) => {
     if (!baselineData) {
       console.error('No chart data available to download.');
       return;
-    }
+   }
+   
+   console.log(chartClassName);
 
-    const chartContainer: any = document.querySelector('chart-container'); // Assuming an element with this ID wraps your chart
+    const chartContainer: any = document.querySelector(`.${chartClassName}`); // Assuming an element with this ID wraps your chart
 
     if (!chartContainer) {
     console.error('Chart container element not found.');
@@ -140,7 +168,7 @@ const Prediciton = () => {
     const dataURL = canvas.toDataURL('image/png'); // Get the image URL
     const link = document.createElement('a'); // Create a download link
     link.href = dataURL; // Set the URL to the image data
-    link.download = 'chart.png'; // Set the name for the downloaded file
+    link.download = `${chartClassName}.png`; // Set the name for the downloaded file
     document.body.appendChild(link); // Append link to the body (required for Firefox)
     link.click(); // Trigger the download
     document.body.removeChild(link); // Clean up the link element
@@ -148,6 +176,37 @@ const Prediciton = () => {
     console.error('Error downloading chart:', error);
   }
   };
+
+  const lowercaseAndRemoveSpaces = (str: string) => {
+  return str.toLowerCase().replace(/\s/g, '');
+  }
+
+  //Downloads the images from the nested map functions
+  
+  const handleDownload = (locationType: string, outletType: string, outletSize: string) => {
+    setIsDownloading(true);
+
+    const containerKey = `${locationType}-${outletType}-${outletSize}`;
+    const chartContainer = chartContaineRefs.current[ containerKey ];
+
+  
+    if(chartContainer){
+      const canvas = chartContainer.querySelector('canvas');
+      if(canvas){
+        const dataURL = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.href = dataURL;
+        link.download = `chart_${locationType}_${outletType}_${outletSize}.png`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    }
+    setIsDownloading(false);
+  }
+
+
+  //ChartJs custom options and generate function and data is fetched
 
   const chartOptions = {
     scales: {
@@ -297,14 +356,11 @@ const Prediciton = () => {
            <div className="bg-white shadow-sm rounded-lg overflow-hidden dark:bg-gray-800">
               <div className="px-4 py-5 sm:p-6">
                 <h3 className="text-gray-700 dark:text-gray-200 text-xl md:text-2xl font-semibold">Download Chart</h3>
-                <button
-                  id="download-chart-button"
-                  onClick={handleDownloadChart}
-                  className={`inline-flex items-center px-4 py-2 mt-4 bg-indigo-500 hover:bg-indigo-700 rounded-md font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}
-                  
-                >
-                  Download PNG
-                </button>
+              <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl mt-5">
+                Download the chart as a PNG image. <br/>
+                Each chart can be downloaded individually. <br />
+                
+              </p>
               </div>
             </div>
 
@@ -337,18 +393,27 @@ const Prediciton = () => {
           <div className="mt-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-white shadow-sm rounded-lg overflow-hidden dark:bg-gray-800">  {/* Top 10 Products Chart card */}
-                <div id='chart-container' className="px-4 py-5 sm:p-6">
+                <div className="px-4 py-5 sm:p-6 chart-top10">
                    <h3 className='"text-gray-700 dark:text-gray-200 text-xl md:text-2xl font-semibold'>Top 10 Products (Average Sales)</h3>
                   <Bar data={generateChartData(baselineData?.top10ProductTypesSales || [], predictedResult?.top10ProductTypesSales || [], 'Top 10 Sales')} options={chartOptions} />
                   
+                  <div className="flex flex-row justify-between items-center">
+                {/* Component uses callback to download the chart as a safeguard against data mounting issues */}
+                <ChartDownloadBtn chartClassName="chart-top10" onDownload={handleDownloadChart} />
+                  </div>
+
                 </div>
               </div>
 
               <div className="bg-white shadow-sm rounded-lg overflow-hidden dark:bg-gray-800">  {/* Location Types Chart card */}
-                <div className="px-4 py-5 sm:p-6">
+                <div className="px-4 py-5 sm:p-6 chart-locationTypes">
                   <h3 className='"text-gray-700 dark:text-gray-200 text-xl md:text-2xl font-semibold'>Location Types (Average Sales)</h3>
                   <Bar data={generateChartData(baselineData?.locationType || [], predictedResult?.locationType || [], 'Location Tier Average Sales')} options={chartOptions} />
-               </div>
+                  <div className="flex flex-row justify-between items-center">
+                    <ChartDownloadBtn chartClassName="chart-locationTypes" onDownload={handleDownloadChart} />
+                    </div>
+                </div>
+                
               </div>
 
               
@@ -366,18 +431,30 @@ const Prediciton = () => {
                        <h3 className="text-gray-700 dark:text-gray-200 text-xl md:text-2xl  font-semibold ">{locationType.type} - Average Sales of Products Each Outlet by Location</h3>  {/* Text color based on dark mode */}
                        {locationType.OutletType?.map((outletType) => (
                          <div className="mt-8" key={outletType.type}>
-                           {outletType.OutletSize?.map((outletSize) => (
-                             
-                             
-                               <div className='flex flex-col mt-8' key={outletSize.size}>
+                           {outletType.OutletSize?.map((outletSize, index) => (
+                             // Render a chart for each outlet size within the location type and outlet type group 
+                             // Using ref to store the chart container element for download functionality 
+                            <div ref={(ref: HTMLDivElement | null) => {chartContaineRefs.current[`${locationType.type}-${outletType.type}-${outletSize.size}`]= ref}} className={`flex flex-col mt-8 chart-${locationType.type +"-"+ outletType.type +"-"+ outletSize.size }`} key={outletSize.size}>
                                <h4 className="text-gray-700 dark:text-gray-200 text-lg font-medium" key={outletSize.size}>{`${outletType.type} - ${outletSize.size}`}</h4>  
                                  
                                <Bar data={generateChartData(outletSize.productTypes,
                       predictedResult?.locationType?.find((location) => location.type === locationType.type)?.OutletType?.find((outlet) => outlet.type === outletType.type)?.OutletSize?.find((size) => size.size === outletSize.size)?.productTypes || []
-                      , `${locationType.type} Sales`)} options={chartOptions} />
+                                 , `${locationType.type} Sales`)} options={chartOptions} />
+                               
+                                 <button
+                                 key={"DwnBtn-"+index+"-"+outletSize.size}
+                  id="download-chart-button"
+                  onClick={() => handleDownload(locationType.type, outletType.type, outletSize.size)}
+                  className={`inline-flex w-full md:w-fit md:ml-auto items-center px-4 py-2 mt-4 bg-indigo-500 hover:bg-indigo-700 rounded-md font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}
+                  
+                >
+                  Download Chart
+                </button>
+
                                </div>
-                    
-                           
+                              
+                               
+                               
                              
                            ))}
                           </div> 
