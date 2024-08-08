@@ -325,22 +325,28 @@ const Prediciton = () => {
 
         <h2 className='text-gray-800 dark:text-white text-6xl pt-8'>Predictions</h2>
        
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 mt-4 ">
+        <div className="flex flex-col md:flex-row justify-between items-stretch gap-4 mt-4 ">
           <div className="bg-white shadow-sm rounded-lg overflow-hidden dark:bg-gray-800">  {/* Form card with dark mode switch */}
             <div className="px-4 py-5 sm:p-6">
-          <form onSubmit={handleSubmit}>
-            <div className="flex flex-wrap -mb-3">
-              <label htmlFor="file" className="text-xl font-semibold text-gray-800 dark:text-white mb-1 w-full sm:w-1/2">
+          <form onSubmit={handleSubmit} className='flex flex-wrap gap-y-7'>
+            <div className="flex flex-wrap gap-y-5 -mb-3">
+              <label htmlFor="file" className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-white mb-1 w-full sm:w-1/2">
                 Upload File
                   </label>
                   {/* File input */}
-                 { /* Use "file:" prefix for styling the file inputs as does not work by default */}
+                  { /* Use "file:" prefix for styling the file inputs as does not work by default */}
+                  <p className='text-gray-700 dark:text-gray-200 text-lg md:text-xl'>
+                    Upload a CSV file containing sales data. <br />
+                    Ensure the file has the correct format. <br />
+                    The test data from the previous page should provide the formats needed.
+
+                </p>
               <input
                 id="file"
                 type="file"
                 name="file"
                 required
-                className="block rounded-none relative w-full file:px-3 file:py-2 mt-3 file:border-0 file:rounded-md focus:file:outline-none focus:file:ring-indigo-500 focus:file:border-indigo-500 sm:text-sm file:text-sm file:font-semibold file:text-gray-200 file:bg-indigo-500 hover:file:bg-indigo-700"
+                className="block rounded-none relative w-full text-xl file:px-3 file:py-2 mt-3 file:border-0 file:rounded-md focus:file:outline-none focus:file:ring-indigo-500 focus:file:border-indigo-500 md:text-2xl file:text-sm file:font-semibold file:text-gray-200 file:bg-indigo-500 hover:file:bg-indigo-700"
               />
             </div>
             <button
@@ -432,7 +438,7 @@ const Prediciton = () => {
                        {locationType.OutletType?.map((outletType) => (
                          <div className="mt-8" key={outletType.type}>
                            {outletType.OutletSize?.map((outletSize, index) => (
-                             // Render a chart for each outlet size within the location type and outlet type group 
+                            //  Render a chart for each outlet size within the location type and outlet type group 
                              // Using ref to store the chart container element for download functionality 
                             <div ref={(ref: HTMLDivElement | null) => {chartContaineRefs.current[`${locationType.type}-${outletType.type}-${outletSize.size}`]= ref}} className={`flex flex-col mt-8 chart-${locationType.type +"-"+ outletType.type +"-"+ outletSize.size }`} key={outletSize.size}>
                                <h4 className="text-gray-700 dark:text-gray-200 text-lg font-medium" key={outletSize.size}>{`${outletType.type} - ${outletSize.size}`}</h4>  

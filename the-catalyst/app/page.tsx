@@ -30,9 +30,13 @@ export default function Home() {
               <li className="text-gray-700 dark:text-gray-200 text-lg md:text-xl">Upload the sales data</li>
               <li className="text-gray-700 dark:text-gray-200 text-lg md:text-xl">Receive accurate sales predictions</li>
               <li className="text-gray-700 dark:text-gray-200 text-lg md:text-xl">Improve business decision-making</li>
+              <li className="text-gray-700 dark:text-gray-200 text-lg md:text-xl">Downloadable predicted CSV file</li>
+              <li className="text-gray-700 dark:text-gray-200 text-lg md:text-xl">Theme switcher on the top right</li>
+              <li className="text-gray-700 dark:text-gray-200 text-lg md:text-xl">Downloadable charts as images in PNG</li>
+
             </ul>
             <h3 className='text-gray-700 dark:text-gray-200 text-xl md:text-2xl font-semibold mt-5'>Data Privacy</h3>
-            <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl mt-5">Your data is safe with us.</p>
+            <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl mt-5">Your data is safe with us. When you upload the file and predict. As of now we do not keep any predictions saved so please promptly download the CSV when its done predicting.</p>
 
                 </div>
               </div>
@@ -48,6 +52,12 @@ export default function Home() {
                     </li>
                     <li className="text-gray-700 dark:text-gray-200 text-md md:text-md"><a href="/data/CleanedSynth2_Test_Set.csv" className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mt-5" download>Test Data 2</a></li>
             </ul>
+
+            <div className="">
+              <h3 className='text-gray-700 dark:text-gray-200 text-xl md:text-2xl font-semibold'>How to use?</h3>
+              <p className="text-gray-700 dark:text-gray-200 text-lg md:text-xl mt-5">Click on the link above to download the test data. Upload the file on the prediction page and click predict. Once the prediction is done you can download the CSV file with the predictions.</p>
+            </div>
+
             <div className="flex flec-row w-full justify-center">
               <a
         href="/prediction"
