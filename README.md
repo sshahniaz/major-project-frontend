@@ -42,8 +42,6 @@ To get started with The Catalyst, follow these steps:
 
 5. Open your browser and visit [http://localhost:3000](http://localhost:3000) to access the application.
 
-That's it! You have successfully installed and started The Catalyst on your local machine. Enjoy exploring the future of sales forecasting!
-
 
 ## Home Component
 
